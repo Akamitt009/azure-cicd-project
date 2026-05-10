@@ -260,3 +260,5 @@ Successfully implemented a fully automated Docker CI/CD pipeline where:
 **Amit Kumar**
 
 DevOps | Azure | Docker | Jenkins | Linux | CI/CD
+
+CI/CD pipeline test trigger
