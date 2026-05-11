@@ -12,9 +12,9 @@ pipeline {
         stage('Deploy Website') {
             steps {
                 sh '''
-                mkdir -p /var/www/html
-                rm -rf /var/www/html/*
-                cp -r images index.html README.md Dockerfile Jenkinsfile /var/www/html/
+                sudo mkdir -p /var/www/html
+                sudo rm -rf /var/www/html/*
+                sudo cp -r images index.html README.md Dockerfile Jenkinsfile /var/www/html/
                 '''
             }
         }
