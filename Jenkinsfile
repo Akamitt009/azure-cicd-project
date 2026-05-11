@@ -9,12 +9,18 @@ pipeline {
             }
         }
 
-        stage('Deploy Website') {
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t mywebsite .'
+            }
+        }
+
+        stage('Deploy Container') {
             steps {
                 sh '''
-                sudo mkdir -p /var/www/html
-                sudo rm -rf /var/www/html/*
-                sudo cp -r images index.html README.md Dockerfile Jenkinsfile /var/www/html/
+                docker stop mysite || true
+                docker rm mysite || true
+                docker run -d -p 8081:80 --name mysite mywebsite
                 '''
             }
         }
